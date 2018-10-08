@@ -1,0 +1,13 @@
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#buttons button {
+  margin: 10px;
+}
+
+#progress {
+  display: flex;
+  justify-content: center;
+}
