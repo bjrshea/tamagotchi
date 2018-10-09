@@ -7,28 +7,27 @@ import './styles.css';
 
 export class Tamagotchi {
 
-  constructor(name) {
-    this.name = name;
-    this.foodLevel = 10;
-    this.sleepLevel = 10;
-    this.exerciseLevel = 10;
+  constructor() {
+    this.foodLevel = 100;
+    this.sleepLevel = 100;
+    this.exerciseLevel = 100;
   }
 
   setHunger() {
     setInterval(() => {
-      this.foodLevel--;
+      this.foodLevel = this.foodLevel - 10;
     }, 1000);
   }
 
   setRest() {
     setInterval(() => {
-      this.sleepLevel--;
+      this.sleepLevel = this.sleepLevel - 10;
     }, 1000);
   }
 
   setFitness() {
     setInterval(() => {
-      this.exerciseLevel--;
+      this.exerciseLevel = this.exerciseLevel - 10;
     }, 1000);
   }
 
@@ -58,30 +57,43 @@ export class Tamagotchi {
 $(document).ready(function() {
 
   let newTamagotchi = new Tamagotchi();
-  newTamagotchi.setHunger();
-  newTamagotchi.setRest();
-  newTamagotchi.setFitness();
 
-  $("#feed").click(function() {
-    var currentProgress = 100;
-    var interval = setInterval(function() {
+  $("#start").click(function() {
+    newTamagotchi.setHunger();
+    newTamagotchi.setRest();
+    newTamagotchi.setFitness();
+    let currentProgress = 100;
+    let interval = setInterval(function() {
         currentProgress -= 10;
         $("#dynamic")
         .css("width", currentProgress + "%")
-        .attr("aria-valuenow", currentProgress)
         if (currentProgress >= 100)
-            clearInterval(interval);
+          clearInterval(interval);
+        if (currentProgress <= 0)
+          clearInterval(interval);
     }, 1000);
   });
 
   $("#feed").click(function() {
+    let currentHealth = parseInt($("#dynamic").css("width")) + 32.25;
+    console.log(currentHealth);
     newTamagotchi.feed(10);
-    console.log(newTamagotchi.foodLevel);
+    $("#dynamic")
+    .css("width", currentHealth + "px")
   });
+
   $("#rest").click(function() {
+    let currentHealth = parseInt($("#dynamic").css("width")) + 32.25;
+    console.log(currentHealth);
     newTamagotchi.sleep(10);
+    $("#dynamic")
+    .css("width", currentHealth + "px")
   });
   $("#exercise").click(function() {
+    let currentHealth = parseInt($("#dynamic").css("width")) + 32.25;
+    console.log(currentHealth);
     newTamagotchi.exercise(10);
+    $("#dynamic")
+    .css("width", currentHealth + "px")
   });
 });
