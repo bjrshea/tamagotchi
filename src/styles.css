@@ -7,7 +7,7 @@
   margin: 10px;
 }
 
-#progress {
-  display: flex;
-  justify-content: center;
+#progress-bar-box {
+  width: 50%;
+  margin: auto;
 }

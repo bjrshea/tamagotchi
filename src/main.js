@@ -63,6 +63,18 @@ $(document).ready(function() {
   newTamagotchi.setFitness();
 
   $("#feed").click(function() {
+    var currentProgress = 100;
+    var interval = setInterval(function() {
+        currentProgress -= 10;
+        $("#dynamic")
+        .css("width", currentProgress + "%")
+        .attr("aria-valuenow", currentProgress)
+        if (currentProgress >= 100)
+            clearInterval(interval);
+    }, 1000);
+  });
+
+  $("#feed").click(function() {
     newTamagotchi.feed(10);
     console.log(newTamagotchi.foodLevel);
   });
