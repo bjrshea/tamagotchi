@@ -15,18 +15,19 @@ body {
 
 #start-button button {
   font-family: 'Wendy One', sans-serif;
+  background-color: #EE5354;
+  border: none;
 }
 
 #buttons button {
   margin: 10px;
-  background-color: #EE5354;
   border: none;
   font-family: 'Wendy One', sans-serif;
 }
 
 #progress-bar-box {
   width: 50%;
-  margin: auto;
+  margin: 0 auto 20px auto;
 }
 
 #furby {
