@@ -7,16 +7,19 @@ body {
   justify-content: center;
 }
 
-#start-button {
+.start-button {
   display: flex;
   justify-content: center;
-  margin: 100px;
 }
 
-#start-button button {
+#start, #play-again {
   font-family: 'Wendy One', sans-serif;
   background-color: #EE5354;
   border: none;
+}
+
+#play-again {
+  display: none;
 }
 
 #buttons button {

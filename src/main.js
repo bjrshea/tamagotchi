@@ -5,6 +5,10 @@ import './styles.css';
 
 // Backend Logic:
 
+function randomGenerator(max) {
+  return Math.random() * (max - 10) + 10;
+}
+
 export class Tamagotchi {
 
   constructor() {
@@ -15,25 +19,11 @@ export class Tamagotchi {
 
   runAway() {
     if (this.foodLevel <= 0 || this.sleepLevel <= 0 || this.exerciseLevel <= 0) {
-      alert("you died bro")
+      alert("you died bro");
     } else {
       return false;
     }
   }
-
-
-  setRest() {
-    setInterval(() => {
-      this.sleepLevel = this.sleepLevel - 10;
-    }, 1000);
-  }
-
-  setFitness() {
-    setInterval(() => {
-      this.exerciseLevel = this.exerciseLevel - 10;
-    }, 1000);
-  }
-
 
   feed(amount) {
     this.foodLevel +=amount;
@@ -52,36 +42,48 @@ export class Tamagotchi {
 
 $(document).ready(function() {
 
-  // let currentProgress = newTamagotchi.foodLevel;
   $("#start").click(function() {
+    $("#start").hide();
     let newTamagotchi = new Tamagotchi();
-    // newTamagotchi.setHunger();
-    // newTamagotchi.setRest();
-    // newTamagotchi.setFitness();
-
     let masterClock = setInterval(function() {
-        newTamagotchi.foodLevel = newTamagotchi.foodLevel - 10;
-        newTamagotchi.sleepLevel = newTamagotchi.sleepLevel - 10;
-        newTamagotchi.exerciseLevel = newTamagotchi.exerciseLevel - 10;
-
+        newTamagotchi.foodLevel = newTamagotchi.foodLevel - randomGenerator(10);
+        newTamagotchi.exerciseLevel = newTamagotchi.exerciseLevel - randomGenerator(20);
+        newTamagotchi.sleepLevel = newTamagotchi.sleepLevel - randomGenerator(15);
         console.log(newTamagotchi.foodLevel);
-        $("#hunger").css("width", newTamagotchi.foodLevel + "%");
-        newTamagotchi.runAway();
-        if (newTamagotchi.foodLevel <= 0) {
+        let hungerLevel = $("#hunger").css("width", newTamagotchi.foodLevel + "%");
+
+        let hunger = document.querySelector('#hunger');
+        let hungerWidth= getComputedStyle(hunger);
+        let hungerBarWidth = parseInt(hungerWidth.width);
+        console.log(hungerBarWidth);
+        if (hungerBarWidth <= 0) {
+          $("#health-bar-box").hide();
           clearInterval(masterClock);
+            $("#play-again").show();
         }
 
         console.log(newTamagotchi.exerciseLevel);
-        $("#fitness").css("width", newTamagotchi.exerciseLevel + "%");
-        newTamagotchi.runAway();
-        if (newTamagotchi.exerciseLevel <= 0) {
+        let exerciseLevel = $("#fitness").css("width", newTamagotchi.exerciseLevel + "%");
+        let fitness = document.querySelector('#fitness');
+        let fitnessWidth= getComputedStyle(fitness);
+        let fitnessBarWidth = parseInt(fitnessWidth.width);
+        console.log(fitnessBarWidth);
+        if (fitnessBarWidth <= 0) {
+          $("#health-bar-box").hide();
           clearInterval(masterClock);
+          $("#play-again").show();
         }
+
         console.log(newTamagotchi.sleepLevel);
-        $("#sleep").css("width", newTamagotchi.sleepLevel + "%");
-        newTamagotchi.runAway();
-        if (newTamagotchi.sleepLevel <= 0) {
+        let sleepLevel = $("#sleep").css("width", newTamagotchi.sleepLevel + "%");
+        let sleep = document.querySelector('#sleep');
+        let sleepWidth= getComputedStyle(sleep);
+        let sleepBarWidth = parseInt(sleepWidth.width);
+        console.log(sleepBarWidth);
+        if (sleepBarWidth <= 0) {
+          $("#health-bar-box").hide();
           clearInterval(masterClock);
+          $("#play-again").show();
         }
       }, 1000);
 
@@ -97,24 +99,8 @@ $(document).ready(function() {
     $("#rest").click(function() {
       newTamagotchi.sleep(25);
     });
-
-
   });
-
-
-  // $("#rest").click(function() {
-  //   let currentHealth = parseInt($("#sleep").css("width")) + 32.25;
-  //   console.log(currentHealth);
-  //   newTamagotchi.sleep(10);
-  //   $("#sleep")
-  //   .css("width", currentHealth + "px")
-  // });
-  //
-  // $("#exercise").click(function() {
-  //   let currentHealth = parseInt($("#sleep").css("width")) + 32.25;
-  //   console.log(currentHealth);
-  //   newTamagotchi.exercise(10);
-  //   $("#sleep")
-  //   .css("width", currentHealth + "px")
-  // });
+  $("#play-again").click(function(){
+    location.reload();
+  });
 });
