@@ -10,11 +10,19 @@ Feeling nostalgic? If the answer is yes, you came to the right place. We combine
 
 ## Specs
 
-| Behavior | Input | Output |
-|----------|-------|--------|
-| Behavior | input | output |
+**User Action:** user clicks Feed button
+**Output:** hunger bar increases by a randomized amount
 
-![](https://media.giphy.com/media/ZuZUDQF5AfWrDIllRm/giphy.gif)
+**User Action:** user clicks Exercise button
+**Output:** fitness bar increases by a randomized amount
+
+**User Action:** user clicks Rest button
+**Output:** sleep bar increases by a randomized amount
+
+**User Action:** user allows any of the 3 bars to reach a value of 0
+**Output:** better luck next time
+
+![](https://media.giphy.com/media/9VnR3G0TgpwoVOF3hD/giphy.gif
 
 ## Install Instructions
 
