@@ -1,12 +1,12 @@
-# Project Title
+# Tamagotchi 2.0
 
-#### Epicodus JavaScript exercise, Date
+#### Epicodus JavaScript exercise, 10.8.18
 
-#### By Your Name Here
+#### AJ Mcgladdery & Brendan Shea
 
 ## Description
 
-Add description here
+Feeling nostalgic? If the answer is yes, you came to the right place. We combined two of the 90s' most iconic games/toys (Tamagotchi & Furby) and made a game that'll put your digital parenting skills to the test.
 
 ## Specs
 
@@ -14,15 +14,16 @@ Add description here
 |----------|-------|--------|
 | Behavior | input | output |
 
-## Setup on OSX
+![](https://media.giphy.com/media/ZuZUDQF5AfWrDIllRm/giphy.gif)
 
-* Install Node.js
-* Install karma-cli globally: `npm install -g karma-cli`
-* Clone the repo
-* `npm install` to install dependencies
-* `npm run start` to build and start the dev server
-* `npm run lint` to explicitly run ESLint
-* `npm run test` to run the unit tests with Karma and Jasmine. Visit `localhost:9876` to view the tests.
+## Install Instructions
+
+In your command line, do the following:
+
+* `git clone https://github.com/bjrshea/super-galactic-age-calculator.git`
+* `npm install`
+* `npm run build`
+* `npm run start`
 
 ## Contribution Requirements
 
@@ -42,13 +43,3 @@ Add description here
 * ESLint
 * Jasmine
 * Karma
-
-## Links
-
-* Add links here
-
-## License
-
-This software is licensed under the MIT license.
-
-Copyright (c) 2018 **Your Name Here**
