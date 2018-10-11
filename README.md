@@ -22,7 +22,7 @@ Feeling nostalgic? If the answer is yes, you came to the right place. We combine
 **User Action:** user allows any of the 3 bars to reach a value of 0
 **Output:** better luck next time
 
-![](https://media.giphy.com/media/9VnR3G0TgpwoVOF3hD/giphy.gif
+![](https://media.giphy.com/media/9VnR3G0TgpwoVOF3hD/giphy.gif)
 
 ## Install Instructions
 
